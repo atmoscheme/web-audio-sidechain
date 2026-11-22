@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web-audio-sidechain: Demo</title>
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>web-audio-sidechain</h1>
+        <p class="subtitle">
+          Procedural Web Audio ambient bed + real-time RMS sidechain ducking (zero audio files)
+        </p>
+      </header>
+
+      <section class="card">
+        <div class="controls">
+          <button id="toggle-ambient" class="primary">Start Procedural Ambient</button>
+          <button id="speak-tts">Speak (Procedural WAV TTS)</button>
+          <button id="enqueue-three">Enqueue 3 Lines</button>
+          <button id="speak-fallback">Speak (SpeechSynthesis Fallback)</button>
+          <button id="clear-queue">Clear Queue</button>
+          <button id="stop-speech">Stop Speech</button>
+        </div>
+
+        <label class="text-field">
+          <span>Narration text</span>
+          <input
+            id="narration-text"
+            type="text"
+            value="Approaching orbital altitude. Telemetry steady and background bed ducked cleanly."
+          />
+        </label>
+      </section>
+
+      <section class="card meters">
+        <div class="meter-row">
+          <span>Duck Gain</span>
+          <div class="bar-track"><div id="duck-bar" class="bar-fill duck"></div></div>
+          <code id="duck-value">1.00</code>
+        </div>
+        <div class="meter-row">
+          <span>Voice Envelope</span>
+          <div class="bar-track"><div id="voice-bar" class="bar-fill voice"></div></div>
+          <code id="voice-value">0.00</code>
+        </div>
+        <div class="meter-row">
+          <span>Queue / Status</span>
+          <code id="status-text">idle · queue: 0</code>
+        </div>
+        <div id="spectrum" class="spectrum" aria-label="Frequency spectrum"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
